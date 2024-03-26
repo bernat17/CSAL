@@ -1,0 +1,3 @@
+Layer Pairs Export File for PCB: C:\Users\berna\OneDrive\download\New\download\Documentos\GitHub\CSAL\ETR_CSAL_PCB\CSAL.PcbDoc
+LayersSetName=Top_Bot_Thru_Holes|DrillFile=csal.txt|DrillLayers=gtl,gbl
+LayersSetName=Top_Bot_Rect_Holes|DrillFile=csal-rectholes.txt|DrillLayers=gtl,gbl

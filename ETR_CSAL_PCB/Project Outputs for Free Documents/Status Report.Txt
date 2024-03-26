@@ -1,0 +1,13 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : PCB Document [CSAL.PcbDoc]
+   Generated File[CSAL.TXT]
+   Generated File[CSAL-RectHoles.TXT]
+   Generated File[CSAL.LDP]
+   Generated File[CSAL.DRR]
+
+
+Files Generated   : 4
+Documents Printed : 0
+
+Finished Output Generation At 21:10:51 On 25/03/2024

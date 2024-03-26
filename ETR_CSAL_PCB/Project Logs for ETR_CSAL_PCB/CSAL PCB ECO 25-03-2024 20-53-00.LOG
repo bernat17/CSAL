@@ -1,0 +1,12 @@
+Added Component: Designator=K1(RELAY_1461402-6)
+Added Component: Designator=K2(RELAY_1461402-6)
+Added Pin To Net: NetName=K1_CTRL Pin=K1-C1
+Added Pin To Net: NetName=GND Pin=K1-C2
+Added Pin To Net: NetName=NetJ6_1 Pin=K1-COM
+Added Pin To Net: NetName=NetJ6_2 Pin=K1-NO
+Added Pin To Net: NetName=K2_CTRL Pin=K2-C1
+Added Pin To Net: NetName=GND Pin=K2-C2
+Added Pin To Net: NetName=NetJ7_1 Pin=K2-COM
+Added Pin To Net: NetName=NetJ7_2 Pin=K2-NO
+Added Member To Class: ClassName=CSAL Member=Component K1 RELAY_12VDC
+Added Member To Class: ClassName=CSAL Member=Component K2 RELAY_12VDC

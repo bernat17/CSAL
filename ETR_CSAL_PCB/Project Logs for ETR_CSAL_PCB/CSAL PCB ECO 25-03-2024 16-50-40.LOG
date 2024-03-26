@@ -1,0 +1,11 @@
+Removed Pin From Net: NetName=K1_CTRL Pin=K1-C1
+Removed Pin From Net: NetName=GND Pin=K1-C2
+Removed Pin From Net: NetName=NetJ6_1 Pin=K1-COM
+Removed Pin From Net: NetName=NetJ6_2 Pin=K1-NO
+Removed Member From Class: ClassName=CSAL Member=K1
+Added Component: Designator=K*(RELAY_12VDC)
+Added Pin To Net: NetName=K1_CTRL Pin=K*-C1
+Added Pin To Net: NetName=GND Pin=K*-C2
+Added Pin To Net: NetName=NetJ6_1 Pin=K*-COM
+Added Pin To Net: NetName=NetJ6_2 Pin=K*-NO
+Added Member To Class: ClassName=CSAL Member=Component K* RELAY_12VDC
