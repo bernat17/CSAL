@@ -1,0 +1,31 @@
+Removed Pin From Net: NetName=GND Pin=D5-K
+Removed Pin From Net: NetName=GND Pin=D6-A
+Removed Pin From Net: NetName=GND Pin=D7-K
+Removed Pin From Net: NetName=GND Pin=D8-A
+Removed Pin From Net: NetName=GND Pin=K1-C2
+Removed Pin From Net: NetName=GND Pin=K2-C2
+Removed Pin From Net: NetName=+5 Pin=Q1-C
+Removed Pin From Net: NetName=+5 Pin=Q2-C
+Removed Pin From Net: NetName=GND Pin=SW3-4
+Added Pin To Net: NetName=+5 Pin=D6-C
+Added Pin To Net: NetName=+5 Pin=D8-C
+Added Pin To Net: NetName=+5 Pin=K1-C1
+Added Pin To Net: NetName=+5 Pin=K2-C1
+Added Pin To Net: NetName=GND Pin=Q1-E
+Added Pin To Net: NetName=GND Pin=Q2-E
+Added Pin To Net: NetName=+5 Pin=R12-1
+Added Pin To Net: NetName=+5 Pin=R14-1
+Added Pin To Net: NetName=GND Pin=SW3-3
+Change Net Name : Old Net Name=+5 New Net Name=K1+
+Change Net Color : Old Net Color=RGB(255, 110, 255) New Net Color=Default
+Added Pin To Net: NetName=K1- Pin=D5-K
+Added Pin To Net: NetName=K1- Pin=D6-A
+Added Pin To Net: NetName=K1- Pin=K1-C2
+Added Pin To Net: NetName=K1- Pin=Q1-C
+Added Net: Name=K1-
+Added Pin To Net: NetName=K2- Pin=D7-K
+Added Pin To Net: NetName=K2- Pin=D8-A
+Added Pin To Net: NetName=K2- Pin=K2-C2
+Added Pin To Net: NetName=K2- Pin=Q2-C
+Added Net: Name=K2-
+Added Member To Class: ClassName=CSAL Member=Component J6 J_2_CableContact
