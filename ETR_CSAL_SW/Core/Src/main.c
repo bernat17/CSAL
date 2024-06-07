@@ -45,6 +45,9 @@ ADC_HandleTypeDef hadc1;
 TIM_HandleTypeDef htim3;
 
 /* USER CODE BEGIN PV */
+uint16_t adc_in=0;
+uint16_t vector_temperatures[]={20,	50,	80,	110,	140,	170,	200,	230};
+float vector_vin[]={1.4908,	2.3311,	2.8186,	3.0536,	3.1655,	3.2213,	3.2511,	3.2679};
 
 /* USER CODE END PV */
 
@@ -59,6 +62,16 @@ static void MX_ADC1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+float get_temperature(uint16_t lectura_adc){
+	uint8_t i=0;
+	float vin=3.3*(lectura_adc/4095);
+	while(vector_vin[i]<=vin){
+		i=i+1;
+	}
+	float temperatura=(vin-vector_vin[(i-1)]+((vector_vin[(i)]-vector_vin[(i-1)])/(vector_temperatures[i]-vector_temperatures[(i-1)]))*vector_temperatures[(i-1)])/((vector_vin[(i)]-vector_vin[(i-1)])/(vector_temperatures[i]-vector_temperatures[(i-1)]));
+	return temperatura;
+}
 
 /* USER CODE END 0 */
 
@@ -95,6 +108,7 @@ int main(void)
   MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim3);
+  HAL_ADC_Start(&hadc1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -167,22 +181,21 @@ static void MX_ADC1_Init(void)
   /** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion)
   */
   hadc1.Instance = ADC1;
-  hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV1;
+  hadc1.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV2;
   hadc1.Init.Resolution = ADC_RESOLUTION_12B;
   hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
   hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
   hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
   hadc1.Init.LowPowerAutoWait = DISABLE;
   hadc1.Init.LowPowerAutoPowerOff = DISABLE;
-  hadc1.Init.ContinuousConvMode = DISABLE;
+  hadc1.Init.ContinuousConvMode = ENABLE;
   hadc1.Init.NbrOfConversion = 1;
-  hadc1.Init.DiscontinuousConvMode = DISABLE;
   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
   hadc1.Init.DMAContinuousRequests = DISABLE;
   hadc1.Init.Overrun = ADC_OVR_DATA_PRESERVED;
-  hadc1.Init.SamplingTimeCommon1 = ADC_SAMPLETIME_1CYCLE_5;
-  hadc1.Init.SamplingTimeCommon2 = ADC_SAMPLETIME_1CYCLE_5;
+  hadc1.Init.SamplingTimeCommon1 = ADC_SAMPLETIME_160CYCLES_5;
+  hadc1.Init.SamplingTimeCommon2 = ADC_SAMPLETIME_160CYCLES_5;
   hadc1.Init.OversamplingMode = DISABLE;
   hadc1.Init.TriggerFrequencyMode = ADC_TRIGGER_FREQ_HIGH;
   if (HAL_ADC_Init(&hadc1) != HAL_OK)
@@ -311,7 +324,13 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   {
     HAL_GPIO_TogglePin(GPIOB, GPIO_PIN_4);
     //llegir ADC
+    if (HAL_ADC_PollForConversion(&hadc1, 10) == HAL_OK) {
+        uint16_t adc_in = HAL_ADC_GetValue(&hadc1);
+      }
+    float temperatura=get_temperature(adc_in);
+    //float temperatura=get_temperature(adc_in);
     //obtenir valor temperatura
+
     //funció regulador de temperatura
   }
 }
